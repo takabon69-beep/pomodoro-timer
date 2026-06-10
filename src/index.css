@@ -32,6 +32,12 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%;
