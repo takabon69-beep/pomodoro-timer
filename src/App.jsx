@@ -243,43 +243,47 @@ function App() {
           <form className="settings-form" onSubmit={handleSettingsSave}>
             <div className="form-group">
               <label>作業（分）</label>
-              <input
-                type="number"
-                min="1"
-                max="60"
+              <select
                 value={formSettings.pomodoro}
                 onChange={(e) => setFormSettings({...formSettings, pomodoro: parseInt(e.target.value) || 1})}
-              />
+              >
+                {Array.from({length: 60}, (_, i) => i + 1).map(num => (
+                  <option key={num} value={num}>{num} 分</option>
+                ))}
+              </select>
             </div>
             <div className="form-group">
               <label>小休憩（分）</label>
-              <input
-                type="number"
-                min="1"
-                max="30"
+              <select
                 value={formSettings.shortBreak}
                 onChange={(e) => setFormSettings({...formSettings, shortBreak: parseInt(e.target.value) || 1})}
-              />
+              >
+                {Array.from({length: 60}, (_, i) => i + 1).map(num => (
+                  <option key={num} value={num}>{num} 分</option>
+                ))}
+              </select>
             </div>
             <div className="form-group">
               <label>大休憩（分）</label>
-              <input
-                type="number"
-                min="1"
-                max="60"
+              <select
                 value={formSettings.longBreak}
                 onChange={(e) => setFormSettings({...formSettings, longBreak: parseInt(e.target.value) || 1})}
-              />
+              >
+                {Array.from({length: 60}, (_, i) => i + 1).map(num => (
+                  <option key={num} value={num}>{num} 分</option>
+                ))}
+              </select>
             </div>
             <div className="form-group">
               <label>大休憩までのセット数（回）</label>
-              <input
-                type="number"
-                min="1"
-                max="10"
+              <select
                 value={formSettings.pomodorosUntilLongBreak}
                 onChange={(e) => setFormSettings({...formSettings, pomodorosUntilLongBreak: parseInt(e.target.value) || 1})}
-              />
+              >
+                {Array.from({length: 10}, (_, i) => i + 1).map(num => (
+                  <option key={num} value={num}>{num} 回</option>
+                ))}
+              </select>
             </div>
             <button type="submit" className="save-btn">
               保存
